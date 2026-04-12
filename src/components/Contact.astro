@@ -17,18 +17,10 @@
     <div class="contact__row">
       <dt class="mono">phone</dt>
       <dd>
-        <button
-          type="button"
-          class="contact__reveal"
-          data-reveal-phone
-          aria-expanded="false"
-        >
-          click to reveal
-        </button>
-        <span class="contact__phones" data-reveal-target hidden>
+        <span class="contact__phones">
           <a href="tel:+61424964420">AU +61 424 964 420</a>
           <span class="contact__dot" aria-hidden="true">·</span>
-          <a href="tel:+64210267127">NZ +64 21 026 71274</a>
+          <a href="tel:+642102671274">NZ +64 21 026 71274</a>
         </span>
       </dd>
     </div>
@@ -62,18 +54,6 @@
   </p>
 </section>
 
-<script>
-  const btn = document.querySelector<HTMLButtonElement>("[data-reveal-phone]");
-  const target = document.querySelector<HTMLElement>("[data-reveal-target]");
-  if (btn && target) {
-    btn.addEventListener("click", () => {
-      target.hidden = false;
-      btn.hidden = true;
-      btn.setAttribute("aria-expanded", "true");
-    });
-  }
-</script>
-
 <style>
   .contact {
     display: grid;
@@ -82,14 +62,6 @@
 
   .contact__label {
     color: var(--color-accent-muted);
-  }
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0, 0, 0, 0);
-    white-space: nowrap; border: 0;
   }
 
   .contact__lede {
@@ -124,27 +96,6 @@
   .contact__row dd {
     margin: 0;
     font-size: var(--text-base);
-  }
-
-  .contact__reveal {
-    appearance: none;
-    background: transparent;
-    border: 1px dashed var(--color-border-strong);
-    color: var(--color-text-muted);
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: var(--tracking-mono);
-    padding: 0.3em 0.7em;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: border-color var(--duration-fast) var(--ease-out-expo),
-                color var(--duration-fast) var(--ease-out-expo);
-  }
-
-  .contact__reveal:hover,
-  .contact__reveal:focus-visible {
-    color: var(--color-accent);
-    border-color: var(--color-accent);
   }
 
   .contact__phones {

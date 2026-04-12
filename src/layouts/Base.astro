@@ -1,4 +1,10 @@
 ---
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/geist-mono/400.css";
+import "@fontsource/geist-mono/500.css";
 import "../styles/global.css";
 import SectionNav from "../components/SectionNav.astro";
 
@@ -8,9 +14,23 @@ interface Props {
 }
 
 const {
-  title = "Jacob Marriott — software engineering student at UQ",
-  description = "Software engineering student at UQ building tools for real-world operations. Brisbane · Queenstown.",
+  title = "Jacob Marriott — CS/Engineering student at UQ",
+  description = "Jacob Marriott — CS/Engineering student at UQ. Hospitality dashboards, vinyl scrapers, voice AI agents. Brisbane · Queenstown. Available for 2026/27 internships.",
 } = Astro.props;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jacob Marriott",
+  "url": "https://jacobmarriott.com",
+  "jobTitle": "CS/Engineering Student",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "The University of Queensland" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressCountry": "AU" },
+  "sameAs": [
+    "https://github.com/jacobem1836",
+    "https://www.linkedin.com/in/jacob-marriott-1836-98a6571aa"
+  ]
+};
 ---
 
 <!doctype html>
@@ -22,12 +42,19 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
-    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/og.png" />
+
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
   <body>
     <SectionNav />

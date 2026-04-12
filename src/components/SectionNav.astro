@@ -25,7 +25,10 @@ const items = [
 <script>
   const links = document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]");
   const map = new Map<string, HTMLAnchorElement>();
-  links.forEach((l) => map.set(l.dataset.navLink!, l));
+  links.forEach((l) => {
+    const id = l.dataset.navLink;
+    if (id) map.set(id, l);
+  });
 
   const setActive = (id: string) => {
     links.forEach((l) => l.classList.toggle("is-active", l.dataset.navLink === id));
