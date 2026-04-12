@@ -1,0 +1,151 @@
+---
+const roles = [
+  {
+    dates: "Mar 2026 — present",
+    title: "Contract Software Engineer",
+    place: "Brisbane, QLD",
+    body: "Full-stack hospitality BI dashboard (the project above). Real-time P&L, cookie-based auth with PIN + middleware, Vercel deployment with secure secrets management.",
+  },
+  {
+    dates: "Aug 2025 — present",
+    title: "Chef de Partie",
+    place: "Chef Jon Pizzeria & Bistro, Brisbane",
+    body: "Bistro section lead. POS programming bridging FOH/BOH — which is what started the dashboard work.",
+  },
+  {
+    dates: "Dec 2025 — present",
+    title: "Chef de Partie",
+    place: "Boucher French Bistro, Brisbane",
+    body: "",
+  },
+  {
+    dates: "Jan — Aug 2025",
+    title: "Commis Chef",
+    place: "Ruby, My Dear, Brisbane",
+    body: "Menu development, independent prep operations.",
+  },
+  {
+    dates: "Nov 2021 — Dec 2025",
+    title: "Commis Chef",
+    place: "Tanoshi Restaurant Group, Queenstown NZ",
+    body: "Traditional Japanese technique, precision and timing, training junior staff.",
+  },
+  {
+    dates: "Nov 2020 — Dec 2022",
+    title: "Sound Engineer (Contract)",
+    place: "Rock Formation Trust, Queenstown NZ",
+    body: "",
+  },
+];
+---
+
+<section id="experience" class="experience container" aria-labelledby="experience-heading">
+  <p class="section-label experience__label">
+    <span aria-hidden="true">04 / </span>experience
+  </p>
+
+  <h2 id="experience-heading" class="visually-hidden">Experience</h2>
+
+  <ol class="experience__list">
+    {roles.map((r) => (
+      <li class="experience__item">
+        <p class="experience__dates mono">{r.dates}</p>
+        <div class="experience__detail">
+          <h3 class="experience__title">
+            {r.title} <span class="experience__place">· {r.place}</span>
+          </h3>
+          {r.body && <p class="experience__body">{r.body}</p>}
+        </div>
+      </li>
+    ))}
+  </ol>
+
+  <p class="experience__cv">
+    <a href="/cv.pdf">download full CV <span aria-hidden="true">→</span></a>
+  </p>
+</section>
+
+<style>
+  .experience {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .experience__label {
+    color: var(--color-accent-muted);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0);
+    white-space: nowrap; border: 0;
+  }
+
+  .experience__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+  }
+
+  .experience__item {
+    display: grid;
+    gap: var(--space-2);
+    padding-block: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .experience__item:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .experience__dates {
+    font-size: var(--text-xs);
+    color: var(--color-text-dim);
+    text-transform: lowercase;
+  }
+
+  .experience__title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+
+  .experience__place {
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  .experience__body {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    max-width: 62ch;
+    margin-top: var(--space-2);
+  }
+
+  .experience__cv {
+    margin-top: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  @media (min-width: 48rem) {
+    .experience__item {
+      grid-template-columns: 12rem minmax(0, 1fr);
+      gap: clamp(1.5rem, -1rem + 8vw, 5rem);
+      align-items: baseline;
+    }
+
+    .experience__dates {
+      padding-top: 0.2rem;
+    }
+
+    .experience__cv {
+      padding-left: calc(12rem + clamp(1.5rem, -1rem + 8vw, 5rem));
+    }
+  }
+</style>

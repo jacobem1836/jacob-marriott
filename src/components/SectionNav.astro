@@ -1,0 +1,123 @@
+---
+const items = [
+  { id: "intro",      num: "01", label: "intro" },
+  { id: "about",      num: "02", label: "about" },
+  { id: "work",       num: "03", label: "work" },
+  { id: "experience", num: "04", label: "experience" },
+  { id: "contact",    num: "05", label: "contact" },
+];
+---
+
+<nav class="section-nav" aria-label="Sections">
+  <ol>
+    {items.map((it) => (
+      <li>
+        <a href={`#${it.id}`} data-nav-link={it.id}>
+          <span class="section-nav__num" aria-hidden="true">{it.num}</span>
+          <span class="section-nav__dash" aria-hidden="true">—</span>
+          <span class="section-nav__label">{it.label}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]");
+  const map = new Map<string, HTMLAnchorElement>();
+  links.forEach((l) => map.set(l.dataset.navLink!, l));
+
+  const setActive = (id: string) => {
+    links.forEach((l) => l.classList.toggle("is-active", l.dataset.navLink === id));
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    },
+    { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+  );
+
+  map.forEach((_, id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+
+<style>
+  .section-nav {
+    display: none;
+  }
+
+  @media (min-width: 64rem) {
+    .section-nav {
+      display: block;
+      position: fixed;
+      left: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .section-nav ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .section-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-mono);
+      text-transform: lowercase;
+      color: var(--color-text-dim);
+      border-bottom: 0;
+      padding: 0.2em 0;
+      transition: color var(--duration-fast) var(--ease-out-expo);
+    }
+
+    .section-nav a:hover,
+    .section-nav a:focus-visible {
+      color: var(--color-text);
+      border-bottom: 0;
+    }
+
+    .section-nav__dash {
+      width: 1.25em;
+      color: var(--color-border-strong);
+      transition: width var(--duration-normal) var(--ease-out-expo),
+                  color var(--duration-fast) var(--ease-out-expo);
+    }
+
+    .section-nav__label {
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity var(--duration-normal) var(--ease-out-expo),
+                  transform var(--duration-normal) var(--ease-out-expo);
+    }
+
+    .section-nav a:hover .section-nav__label,
+    .section-nav a:focus-visible .section-nav__label,
+    .section-nav a.is-active .section-nav__label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .section-nav a.is-active {
+      color: var(--color-accent);
+    }
+
+    .section-nav a.is-active .section-nav__dash {
+      color: var(--color-accent);
+      width: 2em;
+    }
+  }
+</style>

@@ -1,0 +1,222 @@
+---
+interface Project {
+  index: string;
+  title: string;
+  status: string;
+  body: string;
+  tags: string[];
+  href?: string;
+}
+
+const projects: Project[] = [
+  {
+    index: "01",
+    title: "Chef Jon Pizzeria Dashboard",
+    status: "shipped, in production",
+    body: "A private financial dashboard for a Brisbane hospitality client. Daily sales entry, COGS, wages, profitability across daily/weekly/monthly/FY views, CSV exports the owner uses at the end of service. Next.js + Supabase, PIN-gated, deployed to Vercel with GitHub CI/CD.",
+    tags: ["next.js", "supabase", "postgres", "chart.js", "vercel"],
+  },
+  {
+    index: "02",
+    title: "CRATE",
+    status: "personal, running, in progress",
+    body: "A vinyl wishlist that watches 6 Australian stores plus Discogs and emails me when something drops below threshold. FastAPI + SQLite, concurrent scrapers, landed-cost pricing, iOS Shortcut API so I can add a record from my phone in three taps. Started because I was sick of a single list in a note on my phone — now I can access it anywhere, and get info on the best deals.",
+    tags: ["python", "fastapi", "sqlalchemy", "railway"],
+    href: "https://github.com/jacobem1836/Vinyl-Scraper",
+  },
+  {
+    index: "03",
+    title: "dAIly",
+    status: "in progress",
+    body: "A voice-first assistant that briefs you on your day before you open a single app — email, calendar, news, Slack — synthesised into a conversational morning summary. Python + FastAPI + pgvector for memory, LangGraph for agent orchestration, Deepgram/Cartesia for sub-second voice. Exploring where voice and agentic workflows can replace app-hopping.",
+    tags: ["python", "langgraph", "pgvector", "fastapi"],
+  },
+];
+---
+
+<section id="work" class="work container" aria-labelledby="work-heading">
+  <p class="section-label work__label">
+    <span aria-hidden="true">03 / </span>work
+  </p>
+
+  <h2 id="work-heading" class="visually-hidden">Selected work</h2>
+
+  <ol class="work__list">
+    {projects.map((p) => (
+      <li class="work__item">
+        <header class="work__header">
+          <p class="work__index mono" aria-hidden="true">work / {p.index}</p>
+          <h3 class="work__title">
+            {p.href ? (
+              <a class="work__title-link" href={p.href} target="_blank" rel="noopener noreferrer">
+                {p.title}
+                <span class="work__title-arrow" aria-hidden="true">↗</span>
+                <span class="visually-hidden">(opens on GitHub in a new tab)</span>
+              </a>
+            ) : (
+              p.title
+            )}
+          </h3>
+          <p class="work__status mono">{p.status}</p>
+        </header>
+        <p class="work__body">{p.body}</p>
+        <ul class="work__tags" aria-label="Tech">
+          {p.tags.map((t) => <li><code>{t}</code></li>)}
+        </ul>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .work {
+    display: grid;
+    gap: var(--space-12);
+  }
+
+  .work__label {
+    color: var(--color-accent-muted);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .work__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-12);
+  }
+
+  .work__item {
+    display: grid;
+    gap: var(--space-4);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .work__item:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .work__header {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .work__index {
+    font-size: var(--text-xs);
+    color: var(--color-text-dim);
+    text-transform: lowercase;
+  }
+
+  .work__title {
+    font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.15;
+  }
+
+  .work__title-link {
+    color: inherit;
+    border-bottom: 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35em;
+    transition: color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .work__title-link:hover,
+  .work__title-link:focus-visible {
+    color: var(--color-accent);
+    border-bottom: 0;
+  }
+
+  .work__title-arrow {
+    font-size: 0.65em;
+    color: var(--color-text-dim);
+    transition: color var(--duration-fast) var(--ease-out-expo),
+                transform var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .work__title-link:hover .work__title-arrow,
+  .work__title-link:focus-visible .work__title-arrow {
+    color: var(--color-accent);
+    transform: translate(0.1em, -0.1em);
+  }
+
+  .work__status {
+    font-size: var(--text-xs);
+    color: var(--color-accent-muted);
+    text-transform: lowercase;
+  }
+
+  .work__body {
+    font-size: var(--text-base);
+    max-width: 62ch;
+    color: var(--color-text);
+  }
+
+  .work__tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .work__tags code {
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.25em 0.6em;
+    font-size: var(--text-xs);
+    transition: border-color var(--duration-fast) var(--ease-out-expo),
+                color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .work__item:hover .work__tags code {
+    border-color: var(--color-border-strong);
+  }
+
+  @media (min-width: 48rem) {
+    .work__item {
+      grid-template-columns: 10rem minmax(0, 1fr);
+      gap: var(--space-8) clamp(1.5rem, -1rem + 8vw, 5rem);
+      align-items: start;
+    }
+
+    .work__header {
+      grid-column: 1;
+      padding-top: 0.35rem;
+    }
+
+    .work__body {
+      grid-column: 2;
+      grid-row: 1;
+      font-size: var(--text-lg);
+      line-height: var(--leading-prose);
+    }
+
+    .work__tags {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .work__title {
+      font-size: var(--text-xl);
+    }
+  }
+</style>

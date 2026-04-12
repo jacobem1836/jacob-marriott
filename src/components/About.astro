@@ -1,0 +1,81 @@
+---
+---
+
+<section id="about" class="about container" aria-labelledby="about-heading">
+  <p class="section-label about__label">
+    <span aria-hidden="true">02 / </span>about
+  </p>
+
+  <h2 id="about-heading" class="visually-hidden">About</h2>
+
+  <div class="about__body">
+    <p>
+      Fourth-year Software Engineering at UQ — compilers, software
+      architecture, generative AI. Java, Python, C, Haskell on the
+      technical side; five years in professional kitchens, which has
+      done more for how I think about software than I expected.
+    </p>
+
+    <p>
+      The kitchen work isn't a past life — it's the other half of how
+      I think about building things. A dashboard a chef actually opens
+      at the end of service is a different object to a dashboard that
+      just technically works. I write code, but I also care about how
+      a thing reads, how it's explained, and whether the person using
+      it wants to. The AI and infra underneath is the easy part;
+      making it feel obvious is the real one.
+    </p>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .about__label {
+    color: var(--color-accent-muted);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .about__body {
+    display: grid;
+    gap: var(--space-6);
+    max-width: 58ch;
+    font-size: var(--text-lg);
+    line-height: var(--leading-prose);
+    color: var(--color-text);
+  }
+
+  .about__body p {
+    max-width: none;
+  }
+
+  .about__emphasis {
+    font-style: normal;
+    color: var(--color-text);
+    background: var(--color-accent-bg);
+    padding: 0.05em 0.3em;
+    border-radius: var(--radius-sm);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  @media (min-width: 48rem) {
+    .about__body {
+      padding-left: clamp(0rem, -2rem + 10vw, 8rem);
+    }
+  }
+</style>

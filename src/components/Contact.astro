@@ -1,0 +1,177 @@
+---
+---
+
+<section id="contact" class="contact container" aria-labelledby="contact-heading">
+  <p class="section-label contact__label">
+    <span aria-hidden="true">05 / </span>contact
+  </p>
+
+  <h2 id="contact-heading" class="visually-hidden">Contact</h2>
+
+  <dl class="contact__list">
+    <div class="contact__row">
+      <dt class="mono">email</dt>
+      <dd><a href="mailto:jacobemarriott@icloud.com">jacobemarriott@icloud.com</a></dd>
+    </div>
+
+    <div class="contact__row">
+      <dt class="mono">phone</dt>
+      <dd>
+        <button
+          type="button"
+          class="contact__reveal"
+          data-reveal-phone
+          aria-expanded="false"
+        >
+          click to reveal
+        </button>
+        <span class="contact__phones" data-reveal-target hidden>
+          <a href="tel:+61424964420">AU +61 424 964 420</a>
+          <span class="contact__dot" aria-hidden="true">·</span>
+          <a href="tel:+64210267127">NZ +64 21 026 71274</a>
+        </span>
+      </dd>
+    </div>
+
+    <div class="contact__row">
+      <dt class="mono">linkedin</dt>
+      <dd>
+        <a href="https://www.linkedin.com/in/jacob-marriott-1836-98a6571aa" target="_blank" rel="noopener noreferrer">
+          jacob-marriott <span class="contact__arrow" aria-hidden="true">↗</span>
+        </a>
+      </dd>
+    </div>
+
+    <div class="contact__row">
+      <dt class="mono">github</dt>
+      <dd>
+        <a href="https://github.com/jacobem1836" target="_blank" rel="noopener noreferrer">
+          jacobem1836 <span class="contact__arrow" aria-hidden="true">↗</span>
+        </a>
+      </dd>
+    </div>
+
+    <div class="contact__row">
+      <dt class="mono">cv</dt>
+      <dd><a href="/cv.pdf">download PDF</a></dd>
+    </div>
+  </dl>
+
+  <p class="contact__note">
+    Recruiters — feel free to forward. The CV link is always the latest.
+  </p>
+</section>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>("[data-reveal-phone]");
+  const target = document.querySelector<HTMLElement>("[data-reveal-target]");
+  if (btn && target) {
+    btn.addEventListener("click", () => {
+      target.hidden = false;
+      btn.hidden = true;
+      btn.setAttribute("aria-expanded", "true");
+    });
+  }
+</script>
+
+<style>
+  .contact {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .contact__label {
+    color: var(--color-accent-muted);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0);
+    white-space: nowrap; border: 0;
+  }
+
+  .contact__lede {
+    font-size: var(--text-lg);
+    max-width: 58ch;
+    line-height: var(--leading-prose);
+  }
+
+  .contact__list {
+    margin: 0;
+    display: grid;
+    gap: 0;
+  }
+
+  .contact__row {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: baseline;
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .contact__row:first-child { border-top: 0; }
+
+  .contact__row dt {
+    font-size: var(--text-xs);
+    color: var(--color-text-dim);
+    text-transform: lowercase;
+  }
+
+  .contact__row dd {
+    margin: 0;
+    font-size: var(--text-base);
+  }
+
+  .contact__reveal {
+    appearance: none;
+    background: transparent;
+    border: 1px dashed var(--color-border-strong);
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-mono);
+    padding: 0.3em 0.7em;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: border-color var(--duration-fast) var(--ease-out-expo),
+                color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .contact__reveal:hover,
+  .contact__reveal:focus-visible {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .contact__phones {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: baseline;
+  }
+
+  .contact__dot { color: var(--color-text-dim); }
+
+  .contact__arrow {
+    font-size: 0.75em;
+    color: var(--color-text-dim);
+  }
+
+  .contact__note {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-mono);
+    color: var(--color-text-muted);
+    margin-top: var(--space-4);
+  }
+
+  @media (min-width: 48rem) {
+    .contact__row {
+      grid-template-columns: 10rem minmax(0, 1fr);
+    }
+  }
+</style>
