@@ -18,18 +18,30 @@ const {
   description = "Jacob Marriott — software engineering student at UQ. Hospitality dashboards, vinyl scrapers, voice AI agents. Brisbane · Queenstown. Available for 2026/27 internships.",
 } = Astro.props;
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Jacob Marriott",
   "url": "https://jacobmarriott.com",
+  "description": "Software engineering student at UQ building tools that connect people and systems",
   "jobTitle": "Software Engineering Student",
   "affiliation": { "@type": "CollegeOrUniversity", "name": "The University of Queensland" },
   "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressCountry": "AU" },
+  "knowsAbout": ["Software Engineering", "Web Development", "Artificial Intelligence", "Full-stack Development"],
   "sameAs": [
     "https://github.com/jacobem1836",
     "https://www.linkedin.com/in/jacob-marriott-1836-98a6571aa"
   ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://jacobmarriott.com",
+  "name": "Jacob Marriott",
+  "author": { "@type": "Person", "name": "Jacob Marriott" }
 };
 ---
 
@@ -48,13 +60,15 @@ const personSchema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/og.png" />
+    <meta property="og:url" content={canonicalURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="/og.png" />
 
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+    <link rel="canonical" href={canonicalURL} />
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </head>
   <body>
     <SectionNav />
