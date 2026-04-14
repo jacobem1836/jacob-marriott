@@ -12,9 +12,10 @@ const projects: Project[] = [
   {
     index: "01",
     title: "Chef Jon Pizzeria Dashboard",
-    status: "shipped, in production",
+    status: "shipped, in production — demo available",
     body: "A private financial dashboard for a Brisbane hospitality client. Daily sales entry, COGS, wages, profitability across daily/weekly/monthly/FY views, CSV exports the owner uses at the end of service. Next.js + Supabase, PIN-gated, deployed to Vercel with GitHub CI/CD.",
     tags: ["next.js", "supabase", "postgres", "chart.js", "vercel"],
+    href: "https://www.marriottsystems.net/dashboard",
   },
   {
     index: "02",
@@ -51,7 +52,7 @@ const projects: Project[] = [
               <a class="work__title-link" href={p.href} target="_blank" rel="noopener noreferrer">
                 {p.title}
                 <span class="work__title-arrow" aria-hidden="true">↗</span>
-                <span class="visually-hidden">(opens on GitHub in a new tab)</span>
+                <span class="visually-hidden">(opens in a new tab)</span>
               </a>
             ) : (
               p.title
