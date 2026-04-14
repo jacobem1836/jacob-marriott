@@ -19,6 +19,7 @@
 
   /* ---------- Typography ---------- */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Newsreader", Georgia, serif;
   --font-mono: "Geist Mono", ui-monospace, "JetBrains Mono", monospace;
 
   --text-xs:     0.75rem;    /* 12 — mono labels, section numbers */
@@ -64,6 +65,11 @@
   --duration-slow:   520ms;
   --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out:     cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ---------- Depth & Glass ---------- */
+  --glass-bg:        oklch(from var(--color-surface, var(--color-bg)) l c h / 0.6);
+  --backdrop-blur:   12px;
+  --noise-opacity:   0.03;
 
   /* ---------- Layout ---------- */
   --container-narrow: 44rem;
