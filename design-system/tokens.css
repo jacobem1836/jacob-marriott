@@ -78,6 +78,28 @@
   --gutter: clamp(1.25rem, 1rem + 2vw, 2.5rem);
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg:            oklch(98% 0.005 255);
+    --color-bg-raised:     oklch(96% 0.006 255);
+    --color-bg-inset:      oklch(93% 0.008 255);
+    --color-border:        oklch(87% 0.008 255);
+    --color-border-strong: oklch(76% 0.010 255);
+
+    --color-text:          oklch(12% 0.008 255);
+    --color-text-muted:    oklch(40% 0.008 255);
+    --color-text-dim:      oklch(58% 0.010 255);
+
+    --color-accent:        oklch(42% 0.16 150);
+    --color-accent-muted:  oklch(52% 0.12 150);
+    --color-accent-bg:     oklch(42% 0.16 150 / 0.10);
+
+    --color-selection-bg:  oklch(42% 0.16 150 / 0.20);
+
+    --noise-opacity: 0.015;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --duration-fast: 0ms;
