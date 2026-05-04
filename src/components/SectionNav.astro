@@ -6,6 +6,11 @@ const items = [
   { id: "experience", num: "04", label: "experience" },
   { id: "contact",    num: "05", label: "contact" },
 ];
+
+const subpages = [
+  { href: "/consult", label: "consult" },
+  { href: "/web",     label: "web" },
+];
 ---
 
 <nav class="section-nav" aria-label="Sections">
@@ -14,7 +19,17 @@ const items = [
       <li>
         <a href={`#${it.id}`} data-nav-link={it.id}>
           <span class="section-nav__num" aria-hidden="true">{it.num}</span>
-          <span class="section-nav__dash" aria-hidden="true">—</span>
+          <span class="section-nav__dash" aria-hidden="true">–</span>
+          <span class="section-nav__label">{it.label}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+  <ol class="section-nav__subpages">
+    {subpages.map((it) => (
+      <li>
+        <a href={it.href}>
+          <span class="section-nav__dash" aria-hidden="true">–</span>
           <span class="section-nav__label">{it.label}</span>
         </a>
       </li>
@@ -71,6 +86,12 @@ const items = [
       padding: 0;
       display: grid;
       gap: var(--space-3);
+    }
+
+    .section-nav__subpages {
+      margin-top: var(--space-6);
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-4);
     }
 
     .section-nav a {

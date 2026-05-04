@@ -1,0 +1,170 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="AI Consulting – Jacob Marriott"
+  description="I set up personalised AI systems for professionals and businesses across Australia and New Zealand. Claude Code environments, custom skills, knowledge graphs, automation workflows."
+>
+  <section class="consult-section container">
+    <p class="section-label">
+      <span aria-hidden="true">01 / </span>what i do
+    </p>
+    <div class="consult-body">
+      <p>
+        I build personalised AI systems for professionals and business owners – structured
+        setups that know your work, your clients, and how you operate. Not just a chat window.
+        A real working layer on top of your day.
+      </p>
+      <p>
+        This means a Claude Code environment built around you: a profile that persists across
+        every session, custom shortcuts for the tasks you repeat, a knowledge graph that maps
+        your documents and finds connections, and an automation roadmap for what to tackle next.
+      </p>
+    </div>
+  </section>
+
+  <section class="consult-section container">
+    <p class="section-label">
+      <span aria-hidden="true">02 / </span>who it's for
+    </p>
+    <div class="consult-body">
+      <p>
+        Professionals who spend too much time on things that should be faster – drafting,
+        summarising, researching, preparing. Solo operators and small teams. People who've
+        used ChatGPT through a browser and want something that actually knows them.
+      </p>
+      <p>
+        Current clients include a barrister and a travel industry consultant. I work with
+        clients across Australia and New Zealand.
+      </p>
+    </div>
+  </section>
+
+  <section class="consult-section container">
+    <p class="section-label">
+      <span aria-hidden="true">03 / </span>how it works
+    </p>
+    <div class="consult-body">
+      <ol class="consult-steps">
+        <li class="consult-step">
+          <span class="consult-step__num mono">01</span>
+          <div>
+            <strong>Context</strong> – before anything gets built, I need to understand how you
+            actually work. Your tools, your clients, your recurring tasks, the documents you
+            keep going back to. The whole point of a personalised AI setup is that it knows
+            you – so this is where that starts.
+          </div>
+        </li>
+        <li class="consult-step">
+          <span class="consult-step__num mono">02</span>
+          <div>
+            <strong>Build</strong> – one focused session where I set up your full AI environment:
+            profile, rules, skills, knowledge graph. You leave with a working system.
+          </div>
+        </li>
+        <li class="consult-step">
+          <span class="consult-step__num mono">03</span>
+          <div>
+            <strong>Check-in</strong> – one week later I review what you've actually used, tune
+            what isn't working, and add anything that emerged.
+          </div>
+        </li>
+        <li class="consult-step">
+          <span class="consult-step__num mono">04</span>
+          <div>
+            <strong>Ongoing</strong> – monthly support, new skills as your work
+            evolves, graph updates, advanced automations.
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="consult-section container">
+    <p class="section-label">
+      <span aria-hidden="true">04 / </span>get in touch
+    </p>
+    <div class="consult-body">
+      <p>
+        If this sounds relevant, email me at
+        <a href="mailto:hello@jacobmarriott.com">hello@jacobmarriott.com</a>
+        or use the contact form on the main site. Happy to have a quick call first.
+      </p>
+      <p class="consult-back">
+        <a href="/">← jacobmarriott.com</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .consult-section {
+    padding-block: var(--space-section);
+    border-top: 1px solid var(--color-border);
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .consult-section:first-child {
+    border-top: 0;
+    padding-top: clamp(6rem, 4rem + 10vw, 12rem);
+  }
+
+  .consult-body {
+    max-width: 62ch;
+  }
+
+  @media (min-width: 48rem) {
+    .consult-section {
+      grid-template-columns: 10rem minmax(0, 1fr);
+      gap: var(--space-8) clamp(1.5rem, -1rem + 8vw, 5rem);
+      align-items: start;
+    }
+
+    .consult-body {
+      font-size: var(--text-lg);
+      line-height: var(--leading-prose);
+    }
+  }
+
+  .consult-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .consult-step {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  .consult-step__num {
+    font-size: var(--text-xs);
+    color: var(--color-text-dim);
+    padding-top: 0.25em;
+  }
+
+  .consult-back {
+    margin-top: var(--space-8);
+  }
+
+  .consult-back a {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-mono);
+    color: var(--color-text-dim);
+    border-bottom: 0;
+    transition: color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .consult-back a:hover,
+  .consult-back a:focus-visible {
+    color: var(--color-text);
+    border-bottom: 0;
+  }
+</style>

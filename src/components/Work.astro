@@ -11,25 +11,33 @@ interface Project {
 const projects: Project[] = [
   {
     index: "01",
+    title: "AI Systems Consulting",
+    status: "active – AU & NZ clients",
+    body: "I set up personalised AI systems for professionals and businesses – structured Claude Code environments, custom skills, knowledge graphs, and automation workflows, tailored to how they actually work. Current clients include a barrister and a travel industry consultant. The goal is always the same: an AI setup that knows you, not just a chat window.",
+    tags: ["claude code", "ai systems", "automation", "graphify"],
+    href: "/consult",
+  },
+  {
+    index: "02",
     title: "Chef Jon Pizzeria Dashboard",
-    status: "shipped, in production — demo available",
+    status: "shipped, in production – demo available",
     body: "A private financial dashboard for a Brisbane hospitality client. Daily sales entry, COGS, wages, profitability across daily/weekly/monthly/FY views, CSV exports the owner uses at the end of service. Next.js + Supabase, PIN-gated, deployed to Vercel with GitHub CI/CD.",
     tags: ["next.js", "supabase", "postgres", "chart.js", "vercel"],
     href: "https://www.marriottsystems.net/dashboard",
   },
   {
-    index: "02",
+    index: "03",
     title: "CRATE",
     status: "personal, running, in progress",
-    body: "A vinyl wishlist that watches 6 Australian stores plus Discogs and emails me when something drops below threshold. FastAPI + SQLite, concurrent scrapers, landed-cost pricing, iOS Shortcut API so I can add a record from my phone in three taps. Started because I was sick of a single list in a note on my phone — now I can access it anywhere, and get info on the best deals.",
+    body: "A vinyl wishlist that watches 6 Australian stores plus Discogs and emails me when something drops below threshold. FastAPI + SQLite, concurrent scrapers, landed-cost pricing, iOS Shortcut API so I can add a record from my phone in three taps. Started because I was sick of a single list in a note on my phone – now I can access it anywhere, and get info on the best deals.",
     tags: ["python", "fastapi", "sqlalchemy", "railway"],
     href: "https://github.com/jacobem1836/Vinyl-Scraper",
   },
   {
-    index: "03",
+    index: "04",
     title: "dAIly",
     status: "in progress",
-    body: "A voice-first assistant that briefs you on your day before you open a single app — email, calendar, news, Slack — synthesised into a conversational morning summary. Python + FastAPI + pgvector for memory, LangGraph for agent orchestration, Deepgram/Cartesia for sub-second voice. Exploring where voice and agentic workflows can replace app-hopping.",
+    body: "A voice-first assistant that briefs you on your day before you open a single app – email, calendar, news, Slack – synthesised into a conversational morning summary. Python + FastAPI + pgvector for memory, LangGraph for agent orchestration, Deepgram/Cartesia for sub-second voice. Exploring where voice and agentic workflows can replace app-hopping.",
     tags: ["python", "langgraph", "pgvector", "fastapi"],
     href: "https://getdaily.dev",
   },
@@ -50,11 +58,18 @@ const projects: Project[] = [
           <p class="work__index mono" aria-hidden="true">work / {p.index}</p>
           <h3 class="work__title">
             {p.href ? (
-              <a class="work__title-link" href={p.href} target="_blank" rel="noopener noreferrer">
-                {p.title}
-                <span class="work__title-arrow" aria-hidden="true">↗</span>
-                <span class="visually-hidden">(opens in a new tab)</span>
-              </a>
+              p.href.startsWith("/") ? (
+                <a class="work__title-link" href={p.href}>
+                  {p.title}
+                  <span class="work__title-arrow" aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <a class="work__title-link" href={p.href} target="_blank" rel="noopener noreferrer">
+                  {p.title}
+                  <span class="work__title-arrow" aria-hidden="true">↗</span>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+              )
             ) : (
               p.title
             )}
