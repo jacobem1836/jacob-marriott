@@ -23,8 +23,8 @@
   --font-display: "Newsreader", Georgia, serif;
   --font-mono: "Geist Mono", ui-monospace, "JetBrains Mono", monospace;
 
-  --text-xs:     0.75rem;    /* 12 — mono labels, section numbers */
-  --text-sm:     0.875rem;   /* 14 — metadata */
+  --text-xs:     0.875rem;   /* 14 — mono labels, section numbers */
+  --text-sm:     0.9375rem;  /* 15 — metadata */
   --text-base:   clamp(1rem, 0.94rem + 0.3vw, 1.0625rem);
   --text-lg:     clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
   --text-xl:     clamp(1.375rem, 1.1rem + 1vw, 1.75rem);
