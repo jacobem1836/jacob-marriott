@@ -1,36 +1,36 @@
-# Design System — Jacob Marriott personal site
+# Design System – Jacob Marriott personal site
 
-**Direction:** Terminal editorial with IDE accents. Prose-first, confident, software-professional. IDE cues are seasoning (mono labels, section numbers like `01 / about`, backtick highlights, blinking cursor accents) — *not* fake IDE chrome.
+**Direction:** Terminal editorial with IDE accents. Prose-first, confident, software-professional. IDE cues are seasoning (mono labels, section numbers like `01 / about`, backtick highlights, blinking cursor accents) – *not* fake IDE chrome.
 
 Audience: prospective employers/recruiters. Desired action: contact Jacob or forward CV. Differentiator: communication + personability. AI in the work, not the headline.
 
 ---
 
-## Color — cool graphite + soft terminal green
+## Color – cool graphite + soft terminal green
 
 | Token | Usage |
 |---|---|
 | `--color-bg` | Page base (~#17191c, slight blue undertone) |
 | `--color-bg-raised` | Cards, code blocks, raised surfaces |
-| `--color-bg-inset` | Deepest surface — status bar, inline code bg |
+| `--color-bg-inset` | Deepest surface – status bar, inline code bg |
 | `--color-border` | Hairline dividers (one-pixel rules, section gutters) |
 | `--color-border-strong` | Emphasised dividers, focus rings on muted surfaces |
 | `--color-text` | Primary prose |
 | `--color-text-muted` | Metadata, captions, secondary copy |
 | `--color-text-dim` | Line-number gutter, tertiary labels |
-| `--color-accent` | Soft terminal green — links, cursor, active states |
-| `--color-accent-muted` | Secondary accent — underlines, tag borders |
+| `--color-accent` | Soft terminal green – links, cursor, active states |
+| `--color-accent-muted` | Secondary accent – underlines, tag borders |
 | `--color-accent-bg` | Accent-on-surface wash for highlights |
 
 **Rules:**
 - Single accent. Do **not** introduce a second hue.
-- Accent is for signal, not decoration — links, the cursor, the one thing you want the visitor to notice per section.
+- Accent is for signal, not decoration – links, the cursor, the one thing you want the visitor to notice per section.
 - Dark mode only at launch. Light mode is a later decision.
 
 ## Typography
 
 - **Body + headings:** Inter (variable, 400/500/600/700)
-- **Mono:** Geist Mono (400/500) — labels, section numbers (`01 / about`), tags, inline code-style highlights, status bar
+- **Mono:** Geist Mono (400/500) – labels, section numbers (`01 / about`), tags, inline code-style highlights, status bar
 
 ### Scale
 
@@ -53,13 +53,13 @@ Track hero/display type tight (`--tracking-tight`). Track mono labels open (`--t
 
 ## Radius
 
-Small and restrained — `--radius-sm` (4px) for inline chips, `--radius-md` (6px) for cards, `--radius-lg` (10px) for prominent surfaces only. No pill shapes unless intentional.
+Small and restrained – `--radius-sm` (4px) for inline chips, `--radius-md` (6px) for cards, `--radius-lg` (10px) for prominent surfaces only. No pill shapes unless intentional.
 
 ## Motion
 
-- `--duration-fast` (140ms) — hover, focus
-- `--duration-normal` (280ms) — reveal, state change
-- `--duration-slow` (520ms) — scroll-linked emphasis
+- `--duration-fast` (140ms) – hover, focus
+- `--duration-normal` (280ms) – reveal, state change
+- `--duration-slow` (520ms) – scroll-linked emphasis
 - Respect `prefers-reduced-motion` (already wired in `tokens.css`)
 - Animate only `transform`, `opacity`, `clip-path`. Never `width/height/top/left`.
 
@@ -68,7 +68,7 @@ Small and restrained — `--radius-sm` (4px) for inline chips, `--radius-md` (6p
 1. **Section numbers** in mono + muted colour: `01 / about`, `02 / work`
 2. **Inline highlights** with `--color-accent-bg` wash + mono font for key phrases
 3. **Blinking cursor** `▍` after the hero statement (respect reduced-motion)
-4. **Status-bar footer** — thin bar at page bottom with mono metadata (location, current role, last updated)
+4. **Status-bar footer** – thin bar at page bottom with mono metadata (location, current role, last updated)
 5. **Hairline rules** (`--color-border`) instead of heavy dividers
 
 ## Anti-patterns (do not ship)

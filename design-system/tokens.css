@@ -1,5 +1,5 @@
 :root {
-  /* ---------- Color — cool graphite base, soft terminal-green accent ---------- */
+  /* ---------- Color – cool graphite base, soft terminal-green accent ---------- */
   --color-bg:            oklch(18% 0.012 255);   /* ~#17191c, slight blue undertone */
   --color-bg-raised:     oklch(22% 0.012 255);   /* cards, code blocks */
   --color-bg-inset:      oklch(15% 0.012 255);   /* deepest surface, status bar */
@@ -23,8 +23,8 @@
   --font-display: "Newsreader", Georgia, serif;
   --font-mono: "Geist Mono", ui-monospace, "JetBrains Mono", monospace;
 
-  --text-xs:     0.875rem;   /* 14 — mono labels, section numbers */
-  --text-sm:     0.9375rem;  /* 15 — metadata */
+  --text-xs:     0.875rem;   /* 14 – mono labels, section numbers */
+  --text-sm:     0.9375rem;  /* 15 – metadata */
   --text-base:   clamp(1rem, 0.94rem + 0.3vw, 1.0625rem);
   --text-lg:     clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
   --text-xl:     clamp(1.375rem, 1.1rem + 1vw, 1.75rem);

@@ -1,0 +1,81 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "astro.config.mjs",
+      "file_type": "code",
+      "source_file": "/Users/jacobmarriott/Documents/Work/projects/jacob-marriott/astro.config.mjs",
+      "source_location": "L1",
+      "id": "users_jacobmarriott_documents_work_projects_jacob_marriott_astro_config_mjs"
+    },
+    {
+      "label": "personal-website-guide.md",
+      "file_type": "document",
+      "source_file": "/Users/jacobmarriott/Documents/Work/projects/jacob-marriott/personal-website-guide.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "doc_personal_website_guide"
+    },
+    {
+      "label": "BRIEF.md",
+      "file_type": "document",
+      "source_file": "/Users/jacobmarriott/Documents/Work/projects/jacob-marriott/BRIEF.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "doc_brief"
+    },
+    {
+      "label": "copy.md",
+      "file_type": "document",
+      "source_file": "/Users/jacobmarriott/Documents/Work/projects/jacob-marriott/content/copy.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "doc_copy"
+    },
+    {
+      "label": "robots.txt",
+      "file_type": "document",
+      "source_file": "/Users/jacobmarriott/Documents/Work/projects/jacob-marriott/public/robots.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "doc_robots"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "/Users/jacobmarriott/Documents/Work/projects/jacob-marriott/design-system/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "doc_readme"
+    },
+    {
+      "label": "cv.pdf",
+      "file_type": "document",
+      "source_file": "/Users/jacobmarriott/Documents/Work/projects/jacob-marriott/public/cv.pdf",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "doc_cv"
+    }
+  ],
+  "links": []
+}

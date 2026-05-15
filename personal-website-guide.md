@@ -1,4 +1,4 @@
-# Building a Personal Website with Claude — Full Process Guide
+# Building a Personal Website with Claude – Full Process Guide
 
 A step-by-step workflow for creating an impactful, highly personal website using Claude, leveraging
 installed MCPs and agents. Claude should ask clarifying questions at every stage rather than making
@@ -6,28 +6,28 @@ assumptions.
 
 ---
 
-## Stage 0 — Personal Discovery
+## Stage 0 – Personal Discovery
 
 **Goal:** Build a profile rich enough that every design and copy decision is grounded in who you
 actually are. Nothing should feel generic.
 
-### Step A — Mine local files
+### Step A – Mine local files
 
 Point Claude at your local files:
 
-> "Scan my local files for anything that tells you about me — CV, resume, cover letters, project
+> "Scan my local files for anything that tells you about me – CV, resume, cover letters, project
 > READMEs, bios, LinkedIn exports, university transcripts, notes. Start at ~/Documents/ and ~/dev/.
 > Summarise what you find, then tell me what's missing."
 
 Claude will use Glob and Read to find:
-- `~/Documents/**/*.pdf` — CV, transcripts, cover letters
+- `~/Documents/**/*.pdf` – CV, transcripts, cover letters
 - `**/README.md` across project folders
 - Any exported bios, portfolio drafts, or notes
 
-### Step B — Structured interview
+### Step B – Structured interview
 
 After scanning files, Claude should interview you one category at a time. Claude must **not** skip
-this even if the files seem complete — documents rarely capture personality or goals.
+this even if the files seem complete – documents rarely capture personality or goals.
 
 Claude should ask questions across these dimensions:
 
@@ -43,19 +43,19 @@ Claude should ask questions across these dimensions:
 | **Taste & references** | Sites, designers, or brands you respect. What do you want yours to *feel* like? |
 
 **Claude should ask follow-up questions freely.** Short or vague answers should be probed:
-- "You said you're interested in distributed systems — is that something you want to lead with on
+- "You said you're interested in distributed systems – is that something you want to lead with on
   the site, or keep in the background?"
-- "You mentioned a project at work but didn't say what problem it solved — can you tell me more?"
+- "You mentioned a project at work but didn't say what problem it solved – can you tell me more?"
 
-### Step C — Synthesise into a brief
+### Step C – Synthesise into a brief
 
 Once the interview is done, Claude produces:
 
-1. **Who you are** — one clear paragraph
-2. **Positioning statement** — what you do + for whom + why you
-3. **Tone-of-voice guide** — 3–5 adjectives with examples of what they mean in copy
-4. **Content inventory** — list of everything we have to work with (projects, bio, photos, links)
-5. **Open questions** — anything still unclear that would affect design or content decisions
+1. **Who you are** – one clear paragraph
+2. **Positioning statement** – what you do + for whom + why you
+3. **Tone-of-voice guide** – 3–5 adjectives with examples of what they mean in copy
+4. **Content inventory** – list of everything we have to work with (projects, bio, photos, links)
+5. **Open questions** – anything still unclear that would affect design or content decisions
 
 Claude should present this brief and ask:
 > "Does this accurately represent you? Is there anything missing or wrong?"
@@ -64,11 +64,11 @@ Do not proceed to Stage 1 until the brief is confirmed.
 
 ---
 
-## Stage 1 — Direction & Design System
+## Stage 1 – Direction & Design System
 
 **Goal:** Pick a real, specific visual direction. Do not default to generic minimal or dark mode.
 
-### Step A — Pick a direction
+### Step A – Pick a direction
 
 Claude should not suggest a direction without asking first:
 
@@ -84,19 +84,19 @@ Worthwhile directions to consider:
 - Scrollytelling
 - Retro-futurism
 
-### Step B — Generate design system
+### Step B – Generate design system
 
 Use **Stitch MCP** to codify the direction:
 ```
-mcp__stitch__create_design_system   — colors, type scale, spacing tokens
-mcp__stitch__generate_screen_from_text  — visualise key screens before writing code
-mcp__stitch__create_project         — organise screens by section
+mcp__stitch__create_design_system   – colors, type scale, spacing tokens
+mcp__stitch__generate_screen_from_text  – visualise key screens before writing code
+mcp__stitch__create_project         – organise screens by section
 ```
 
 Use **21st Magic MCP** for component inspiration:
 ```
-mcp__magic__21st_magic_component_inspiration  — browse real patterns
-mcp__magic__logo_search                       — wordmark or icon direction
+mcp__magic__21st_magic_component_inspiration  – browse real patterns
+mcp__magic__logo_search                       – wordmark or icon direction
 ```
 
 ### Banned patterns (your web rules enforce these)
@@ -113,13 +113,13 @@ motion that clarifies flow.
 
 ---
 
-## Stage 2 — Content Inventory & Copy
+## Stage 2 – Content Inventory & Copy
 
 **Goal:** Have real content ready before writing any code.
 
 Claude should ask:
 > "Do you have copy written for any sections, or should we write it together? Which sections do you
-> definitely want — hero, about, projects, contact, blog, anything else?"
+> definitely want – hero, about, projects, contact, blog, anything else?"
 
 For each section, Claude should ask what the *goal* of that section is before suggesting structure:
 - Hero: what's the one thing a visitor should understand in 5 seconds?
@@ -130,7 +130,7 @@ All copy should be written using the tone-of-voice guide from the brief.
 
 ---
 
-## Stage 3 — Tech Stack
+## Stage 3 – Tech Stack
 
 Claude should ask before recommending:
 > "A few quick questions before recommending a stack: Do you want a blog or CMS at some point? Do
@@ -138,9 +138,9 @@ Claude should ask before recommending:
 > functionality?"
 
 Good defaults for a personal site:
-- **Next.js + Tailwind** — flexible, deploys to Vercel naturally
-- **Astro** — mostly static, minimal JS, fast
-- **SvelteKit** — lean and performant
+- **Next.js + Tailwind** – flexible, deploys to Vercel naturally
+- **Astro** – mostly static, minimal JS, fast
+- **SvelteKit** – lean and performant
 
 Use **Context7 MCP** to pull current docs for the chosen framework:
 ```
@@ -150,21 +150,21 @@ mcp__plugin_ecc_context7__query-docs
 
 ---
 
-## Stage 4 — Build
+## Stage 4 – Build
 
 ### Scaffolding
 Claude scaffolds empty files first. No boilerplate unless explicitly asked.
 
 ### Component generation
 Use the **GAN harness** for iterative section-by-section building:
-- `gan-planner` — spec out each section against the brief
-- `gan-generator` — implement it
-- `gan-evaluator` — test against visual rubric in a real browser via Playwright
+- `gan-planner` – spec out each section against the brief
+- `gan-generator` – implement it
+- `gan-evaluator` – test against visual rubric in a real browser via Playwright
 
 Use **21st Magic** for individual components:
 ```
-mcp__magic__21st_magic_component_builder   — generate components
-mcp__magic__21st_magic_component_refiner   — iterate
+mcp__magic__21st_magic_component_builder   – generate components
+mcp__magic__21st_magic_component_refiner   – iterate
 ```
 
 Before generating any section, Claude should confirm:
@@ -177,7 +177,7 @@ Be specific. Example:
 
 ---
 
-## Stage 5 — Review & Quality
+## Stage 5 – Review & Quality
 
 Run these agents in parallel once a section is built:
 
@@ -200,19 +200,19 @@ Run these agents in parallel once a section is built:
 
 ---
 
-## Stage 6 — Deployment
+## Stage 6 – Deployment
 
-**GitHub MCP** — create repo and push:
+**GitHub MCP** – create repo and push:
 ```
 mcp__plugin_ecc_github__create_repository
 mcp__plugin_ecc_github__push_files
 ```
 
-**Vercel MCP** — deploy directly from Claude:
+**Vercel MCP** – deploy directly from Claude:
 ```
 mcp__claude_ai_Vercel__deploy_to_vercel
 mcp__claude_ai_Vercel__check_domain_availability_and_price
-mcp__claude_ai_Vercel__get_deployment_build_logs   — if build fails
+mcp__claude_ai_Vercel__get_deployment_build_logs   – if build fails
 ```
 
 ---
@@ -222,10 +222,10 @@ mcp__claude_ai_Vercel__get_deployment_build_logs   — if build fails
 ### Claude should ask, not assume
 At every stage, if something is unclear, Claude asks before proceeding. Common points where
 assumptions go wrong:
-- Visual direction — never pick one without confirmation
-- Section structure — ask what the goal of each section is
-- Copy tone — confirm against the brief
-- Stack choice — ask about future needs before recommending
+- Visual direction – never pick one without confirmation
+- Section structure – ask what the goal of each section is
+- Copy tone – confirm against the brief
+- Stack choice – ask about future needs before recommending
 
 ### Real content over placeholders
 Generic placeholder text leads to generic layouts. Feed Claude your real bio, real project
@@ -243,12 +243,12 @@ from Stage 0. If it drifts, pull it back.
 
 ## Suggested First Prompts
 
-1. `"Scan ~/Documents/ and ~/dev/ for anything about me — CV, READMEs, bios. Tell me what you find and what's missing."`
+1. `"Scan ~/Documents/ and ~/dev/ for anything about me – CV, READMEs, bios. Tell me what you find and what's missing."`
 2. `"Now interview me to fill the gaps. Go one category at a time."`
 3. `"Synthesise everything into a personal brief. Ask me to confirm it before we move on."`
-4. `"Based on the brief, suggest three visual directions that could fit me. Don't pick one — ask me."`
+4. `"Based on the brief, suggest three visual directions that could fit me. Don't pick one – ask me."`
 5. `"Create a design system in Stitch using the direction I choose."`
-6. `"Scaffold a [framework] project — empty files only."`
+6. `"Scaffold a [framework] project – empty files only."`
 7. `"Build the hero section. Here's the copy: [copy]. Check the brief before suggesting a layout."`
 8. `"Run a performance, SEO, and security review on what we have."`
 9. `"Deploy to Vercel and set up the GitHub repo."`
