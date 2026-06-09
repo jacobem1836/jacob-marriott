@@ -27,6 +27,14 @@ const projects: Project[] = [
   },
   {
     index: "03",
+    title: "In a Pickle",
+    status: "shipped, in production – live site",
+    body: "A full website for a Brisbane boutique caterer – catering, menus, blog, and an online quote and booking flow. Built with a custom inline CMS so the owner edits copy, images, and menus live on the page without touching code, behind a JWT-gated admin. Serverless booking and contact handling, vanilla HTML/CSS, Vercel Functions + Blob storage, Resend for email, deployed to Vercel.",
+    tags: ["html/css", "vercel functions", "vercel blob", "resend", "jwt"],
+    href: "https://inapickle.com.au",
+  },
+  {
+    index: "04",
     title: "CRATE",
     status: "personal, running, in progress",
     body: "A vinyl wishlist that watches 6 Australian stores plus Discogs and emails me when something drops below threshold. FastAPI + SQLite, concurrent scrapers, landed-cost pricing, iOS Shortcut API so I can add a record from my phone in three taps. Started because I was sick of a single list in a note on my phone – now I can access it anywhere, and get info on the best deals.",
@@ -34,7 +42,7 @@ const projects: Project[] = [
     href: "https://github.com/jacobem1836/Vinyl-Scraper",
   },
   {
-    index: "04",
+    index: "05",
     title: "dAIly",
     status: "in progress",
     body: "A voice-first assistant that briefs you on your day before you open a single app – email, calendar, news, Slack – synthesised into a conversational morning summary. Python + FastAPI + pgvector for memory, LangGraph for agent orchestration, Deepgram/Cartesia for sub-second voice. Exploring where voice and agentic workflows can replace app-hopping.",
