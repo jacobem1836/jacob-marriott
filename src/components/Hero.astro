@@ -22,16 +22,21 @@
     </span>
   </p>
 
+  <p class="hero__cta-row">
+    <a class="hero__cta" href="https://web.jacobmarriott.com" target="_blank" rel="noopener noreferrer">
+      web <span aria-hidden="true">→</span>
+    </a>
+    <a class="hero__cta" href="/consult">
+      consulting <span aria-hidden="true">→</span>
+    </a>
+  </p>
+
   <p class="hero__meta">
     <span>Brisbane</span>
     <span class="hero__meta-dot" aria-hidden="true">·</span>
     <span>Queenstown</span>
     <span class="hero__meta-dot" aria-hidden="true">·</span>
     <span>available for 2026/27 internships</span>
-    <span class="hero__meta-dot" aria-hidden="true">·</span>
-    <a class="hero__meta-link" href="/consult">consulting</a>
-    <span class="hero__meta-dot" aria-hidden="true">·</span>
-    <a class="hero__meta-link" href="/web">web</a>
     <span class="hero__cursor" aria-hidden="true">▍</span>
   </p>
 </section>
@@ -102,16 +107,43 @@
     color: var(--color-text-dim);
   }
 
-  .hero__meta-link {
-    color: var(--color-text-muted);
-    border-bottom: 0;
-    transition: color var(--duration-fast) var(--ease-out-expo);
+  .hero__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
   }
 
-  .hero__meta-link:hover,
-  .hero__meta-link:focus-visible {
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-mono);
+    text-transform: lowercase;
     color: var(--color-accent);
-    border-bottom: 0;
+    background: var(--color-accent-bg);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    padding: 0.5em 0.9em;
+    transition: background var(--duration-fast) var(--ease-out-expo),
+                transform var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .hero__cta span {
+    transition: transform var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .hero__cta:hover,
+  .hero__cta:focus-visible {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .hero__cta:hover span,
+  .hero__cta:focus-visible span {
+    transform: translateX(3px);
   }
 
   .hero__cursor {
@@ -141,7 +173,8 @@
     .hero__lede {
       padding-left: clamp(0rem, -2rem + 10vw, 8rem);
     }
-    .hero__meta {
+    .hero__meta,
+    .hero__cta-row {
       padding-left: clamp(0rem, -2rem + 10vw, 8rem);
     }
   }

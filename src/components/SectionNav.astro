@@ -8,8 +8,8 @@ const items = [
 ];
 
 const subpages = [
-  { href: "/consult", label: "consult" },
-  { href: "/web",     label: "web" },
+  { href: "/consult",                    label: "consult", external: false },
+  { href: "https://web.jacobmarriott.com", label: "web",     external: true },
 ];
 ---
 
@@ -28,7 +28,7 @@ const subpages = [
   <ol class="section-nav__subpages">
     {subpages.map((it) => (
       <li>
-        <a href={it.href}>
+        <a href={it.href} {...(it.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
           <span class="section-nav__dash" aria-hidden="true">–</span>
           <span class="section-nav__label">{it.label}</span>
         </a>
