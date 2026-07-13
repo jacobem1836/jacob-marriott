@@ -5,6 +5,7 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "@fontsource/geist-mono/400.css";
 import "@fontsource/geist-mono/500.css";
+import "@fontsource-variable/newsreader";
 import "../styles/global.css";
 import SectionNav from "../components/SectionNav.astro";
 
@@ -25,14 +26,21 @@ const personSchema = {
   "@type": "Person",
   "name": "Jacob Marriott",
   "url": "https://jacobmarriott.com",
-  "description": "Software engineering student at UQ building tools that connect people and systems",
+  "description": "Software engineering student at UQ and founder of Marriott Systems, building tools that connect people and systems",
   "jobTitle": "Software Engineering Student",
   "affiliation": { "@type": "CollegeOrUniversity", "name": "The University of Queensland" },
+  "worksFor": {
+    "@type": "Organization",
+    "@id": "https://marriottsystems.net/#organization",
+    "name": "Marriott Systems",
+    "url": "https://marriottsystems.net"
+  },
   "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressCountry": "AU" },
   "knowsAbout": ["Software Engineering", "Web Development", "Artificial Intelligence", "Full-stack Development"],
   "sameAs": [
     "https://github.com/jacobem1836",
-    "https://www.linkedin.com/in/jacob-marriott-1836-98a6571aa"
+    "https://www.linkedin.com/in/jacob-marriott-1836-98a6571aa",
+    "https://marriottsystems.net"
   ]
 };
 
