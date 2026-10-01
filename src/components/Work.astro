@@ -3,59 +3,60 @@ interface Project {
   index: string;
   title: string;
   status: string;
-  body: string;
-  tags: string[];
+  body: string[];
   href?: string;
+  quote?: { text: string; by: string };
 }
 
 const projects: Project[] = [
   {
     index: "01",
-    title: "AI Systems Consulting",
-    status: "active – AU & NZ clients",
-    body: "I set up personalised AI systems for professionals and businesses – structured Claude Code environments, custom skills, knowledge graphs, and automation workflows, tailored to how they actually work. Current clients include a barrister and a travel industry consultant. The goal is always the same: an AI setup that knows you, not just a chat window.",
-    tags: ["claude code", "ai systems", "automation", "graphify"],
-    href: "https://marriottsystems.net/consulting",
+    title: "Innovative Travel",
+    status: "christchurch, nz",
+    body: [
+      "A tour wholesaler of 15+ people selling international holidays. The team are salespeople, and they were spending most of the day on data entry. The same booking was typed into three or four systems. Documents came out of the booking system wrong and had to be fixed in Word before a customer saw them. Some records were still on paper, and nobody could see a customer's full history in one place.",
+      "I sat with every role in the business and wrote a plan for how bookings should move through it. The first two builds were a live feed of their tours, now used by Tour Atlas and other booking platforms, and a document generator that turns a booking into a finished itinerary in the company's own voice and layout. Before anything goes out, it checks that every price and date matches the booking. A central customer database is next on the plan.",
+    ],
   },
   {
     index: "02",
-    title: "Brain Console",
-    status: "active – flagship product",
-    body: "A business-wide AI brain, built for Sandbox Alpha – a stateful agent with persistent memory and tool execution that centralises a company's context, knowledge, and workflows, then automates work across the tools it already runs on. Where a personal AI setup knows one professional, Brain Console knows an entire business, wired into the systems the company already uses. Python, LangGraph, and pgvector.",
-    tags: ["python", "langgraph", "pgvector", "agents"],
-    href: "https://console.marriottsystems.net",
+    title: "Queenstown Chamber of Commerce",
+    status: "queenstown, nz",
+    body: [
+      "Every quarter the Chamber turns a member survey into a published report. I built the tool that produces it from the survey export as an editable Word document. The figures are calculated in code, and I tested them against a past published report until they matched. AI drafts the commentary, and a draft is rejected if it quotes a number that isn't in the data.",
+    ],
   },
   {
     index: "03",
-    title: "Chef Jon Pizzeria Dashboard",
-    status: "shipped, in production – demo available",
-    body: "A private financial dashboard for a Brisbane hospitality client. Daily sales entry, COGS, wages, profitability across daily/weekly/monthly/FY views, CSV exports the owner uses at the end of service. Next.js + Supabase, PIN-gated, deployed to Vercel with GitHub CI/CD.",
-    tags: ["next.js", "supabase", "postgres", "chart.js", "vercel"],
-    href: "https://marriottsystems.net/hospitality",
+    title: "StrataCare Australia",
+    status: "brisbane · technology officer",
+    body: [
+      "I advise StrataCare on an AI overhaul of the business and redesign their processes so the technology does more of the work. I built a reporting engine over their SharePoint files so staff can ask for a report or spreadsheet instead of putting it together by hand. Its first big job pulled 1,643 claim records into a single register. I've also audited their IT spend and rebuilt their website.",
+    ],
   },
   {
     index: "04",
     title: "In a Pickle",
-    status: "shipped, in production – live site",
-    body: "A full website for a Brisbane boutique caterer – catering, menus, blog, and an online quote and booking flow. Built with a custom inline CMS so the owner edits copy, images, and menus live on the page without touching code, behind a JWT-gated admin. Serverless booking and contact handling, vanilla HTML/CSS, Vercel Functions + Blob storage, Resend for email, deployed to Vercel.",
-    tags: ["html/css", "vercel functions", "vercel blob", "resend", "jwt"],
+    status: "brisbane",
     href: "https://inapickle.com.au",
+    body: [
+      "A website for a boutique caterer, with menus, quotes and bookings. I built a custom CMS so the owner can edit text, photos and menus directly on the page.",
+    ],
+    quote: {
+      text: "Our website was in dire need of a major revamp and we were lucky enough to come across Jacob Marriott. Dealing with Jacob has been awesome. His attention to detail and knowledge around an online presence has helped create a much more user-friendly platform for our clients to navigate. In the short time since we launched we have already noticed a major increase in traffic to the site with many of the new features he has applied being utilised by our customers. Jacob not only designed our website but he can manage behind the scenes for us too. 100% recommend!!",
+      by: "Esther Downie, owner, In a Pickle",
+    },
+  },
+];
+
+const extras = [
+  {
+    title: "A personal AI that knows your work.",
+    body: "I set up an AI environment on your own computer with your files, notes and way of working already built in. It remembers what you're working on and takes the repetitive jobs off your week, so you aren't explaining yourself from scratch every time.",
   },
   {
-    index: "05",
-    title: "CRATE",
-    status: "personal, running, in progress",
-    body: "A vinyl wishlist that watches 6 Australian stores plus Discogs and emails me when something drops below threshold. FastAPI + SQLite, concurrent scrapers, landed-cost pricing, iOS Shortcut API so I can add a record from my phone in three taps. Started because I was sick of a single list in a note on my phone – now I can access it anywhere, and get info on the best deals.",
-    tags: ["python", "fastapi", "sqlalchemy", "railway"],
-    href: "https://github.com/jacobem1836/Vinyl-Scraper",
-  },
-  {
-    index: "06",
-    title: "dAIly",
-    status: "in progress",
-    body: "A voice-first assistant that briefs you on your day before you open a single app – email, calendar, news, Slack – synthesised into a conversational morning summary. Python + FastAPI + pgvector for memory, LangGraph for agent orchestration, Deepgram/Cartesia for sub-second voice. Exploring where voice and agentic workflows can replace app-hopping.",
-    tags: ["python", "langgraph", "pgvector", "fastapi"],
-    href: "https://getdaily.dev",
+    title: "AI that knows your business.",
+    body: "I build AI systems that understand how your company runs: your processes, your clients and how you like things done. Staff use it like any AI assistant, but it already has that context, so the answers fit your business. Brain Console started as one of these.",
   },
 ];
 ---
@@ -74,31 +75,41 @@ const projects: Project[] = [
           <p class="work__index mono" aria-hidden="true">work / {p.index}</p>
           <h3 class="work__title">
             {p.href ? (
-              p.href.startsWith("/") ? (
-                <a class="work__title-link" href={p.href}>
-                  {p.title}
-                  <span class="work__title-arrow" aria-hidden="true">↗</span>
-                </a>
-              ) : (
-                <a class="work__title-link" href={p.href} target="_blank" rel="noopener noreferrer">
-                  {p.title}
-                  <span class="work__title-arrow" aria-hidden="true">↗</span>
-                  <span class="visually-hidden">(opens in a new tab)</span>
-                </a>
-              )
+              <a class="work__title-link" href={p.href} target="_blank" rel="noopener noreferrer">
+                {p.title}
+                <span class="work__title-arrow" aria-hidden="true">↗</span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
             ) : (
               p.title
             )}
           </h3>
           <p class="work__status mono">{p.status}</p>
         </header>
-        <p class="work__body">{p.body}</p>
-        <ul class="work__tags" aria-label="Tech">
-          {p.tags.map((t) => <li><code>{t}</code></li>)}
-        </ul>
+        <div class="work__body">
+          {p.body.map((para) => <p>{para}</p>)}
+          {p.quote && (
+            <figure class="work__quote">
+              <blockquote><p>"{p.quote.text}"</p></blockquote>
+              <figcaption class="mono">{p.quote.by}</figcaption>
+            </figure>
+          )}
+        </div>
       </li>
     ))}
   </ol>
+
+  <div class="work__extras">
+    <p class="section-label work__label">also</p>
+    <ul class="work__extras-list">
+      {extras.map((e) => (
+        <li>
+          <h3 class="work__extras-title">{e.title}</h3>
+          <p>{e.body}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
 </section>
 
 <style>
@@ -193,27 +204,63 @@ const projects: Project[] = [
     color: var(--color-text);
   }
 
-  .work__tags {
+  .work__body {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .work__body p {
+    max-width: none;
+  }
+
+  .work__quote {
+    margin: var(--space-4) 0 0;
+    padding-left: var(--space-6);
+    border-left: 2px solid var(--color-accent);
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .work__quote blockquote {
+    margin: 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-text);
+  }
+
+  .work__quote figcaption {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-transform: lowercase;
+  }
+
+  .work__extras {
+    display: grid;
+    gap: var(--space-6);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .work__extras-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
+    display: grid;
+    gap: var(--space-8);
   }
 
-  .work__tags code {
-    background: transparent;
+  .work__extras-list p {
+    margin-top: var(--space-2);
+    max-width: 58ch;
+    font-size: var(--text-lg);
+    line-height: var(--leading-prose);
     color: var(--color-text-muted);
-    border: 1px solid var(--color-border);
-    padding: 0.25em 0.6em;
-    font-size: var(--text-xs);
-    transition: border-color var(--duration-fast) var(--ease-out-expo),
-                color var(--duration-fast) var(--ease-out-expo);
   }
 
-  .work__item:hover .work__tags code {
-    border-color: var(--color-border-strong);
+  .work__extras-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
   }
 
   @media (min-width: 48rem) {
@@ -235,9 +282,8 @@ const projects: Project[] = [
       line-height: var(--leading-prose);
     }
 
-    .work__tags {
-      grid-column: 2;
-      grid-row: 2;
+    .work__extras-list {
+      margin-left: calc(10rem + clamp(1.5rem, -1rem + 8vw, 5rem));
     }
 
     .work__title {

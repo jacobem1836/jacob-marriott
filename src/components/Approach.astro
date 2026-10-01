@@ -1,0 +1,125 @@
+---
+const steps = [
+  {
+    title: "I start with the people.",
+    body: "I talk to the owner and to whoever answers the phone, and everyone in between. Most owners know something is slow but can't say exactly where, because the cause is spread across a few roles and a few systems.",
+  },
+  {
+    title: "You get a plan and a first win.",
+    body: "A plan for where the business should end up, and a couple of changes your staff can use straight away. The quick wins go first, because a team that has seen one thing get easier is much happier to change the rest.",
+  },
+  {
+    title: "I build what's worth building.",
+    body: "Integrations between the systems you already use, document generators, reporting, internal tools and websites. I build them myself and I'm still around after they go live.",
+  },
+];
+---
+
+<section id="approach" class="approach container" aria-labelledby="approach-heading">
+  <p class="section-label approach__label">
+    <span aria-hidden="true">02 / </span>how i work
+  </p>
+
+  <h2 id="approach-heading" class="visually-hidden">How I work</h2>
+
+  <ol class="approach__steps">
+    {steps.map((s, i) => (
+      <li class="approach__step">
+        <p class="approach__num mono" aria-hidden="true">0{i + 1}</p>
+        <div>
+          <h3 class="approach__title">{s.title}</h3>
+          <p class="approach__body">{s.body}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+
+  <div class="approach__aside">
+    <h3 class="approach__aside-title">What I'll talk you out of</h3>
+    <p>
+      A lot of people come to me wanting AI, and often they don't need it. A
+      fixed process, plain software or a product off the shelf is usually
+      cheaper and easier to keep running. Code written without understanding
+      the problem tends to miss how people actually work, and then nobody uses
+      it. I'd rather tell you that at the start than build something that sits
+      there.
+    </p>
+  </div>
+</section>
+
+<style>
+  .approach {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .approach__label {
+    color: var(--color-accent-muted);
+  }
+
+  .approach__steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+  }
+
+  .approach__step {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: var(--space-4);
+    padding-block: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .approach__step:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .approach__num {
+    font-size: var(--text-xs);
+    color: var(--color-text-dim);
+    padding-top: 0.35rem;
+  }
+
+  .approach__title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.2;
+  }
+
+  .approach__body {
+    margin-top: var(--space-2);
+    max-width: 58ch;
+    font-size: var(--text-lg);
+    line-height: var(--leading-prose);
+    color: var(--color-text-muted);
+  }
+
+  .approach__aside {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 58ch;
+    padding: var(--space-6);
+    background: var(--color-accent-bg);
+    border-left: 2px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-lg);
+    line-height: var(--leading-prose);
+  }
+
+  .approach__aside-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  @media (min-width: 48rem) {
+    .approach__steps,
+    .approach__aside {
+      margin-left: clamp(0rem, -2rem + 10vw, 8rem);
+    }
+  }
+</style>

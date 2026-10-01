@@ -15,8 +15,8 @@ interface Props {
 }
 
 const {
-  title = "Jacob Marriott – software engineering student at UQ",
-  description = "Jacob Marriott – software engineering student at UQ. Hospitality dashboards, vinyl scrapers, voice AI agents. Brisbane · Queenstown. Available for 2026/27 internships.",
+  title = "Jacob Marriott – forward deployed engineer for small businesses",
+  description = "Jacob Marriott works inside small businesses in Australia and New Zealand to find where staff time goes, then fixes it with better processes, existing tools or custom software. Brisbane · Queenstown.",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
@@ -26,17 +26,11 @@ const personSchema = {
   "@type": "Person",
   "name": "Jacob Marriott",
   "url": "https://jacobmarriott.com",
-  "description": "Software engineering student at UQ and founder of Marriott Systems, building tools that connect people and systems",
-  "jobTitle": "Software Engineering Student",
+  "description": "Forward deployed engineer working with small businesses in Australia and New Zealand on process redesign and custom software",
+  "jobTitle": "Forward Deployed Engineer",
   "affiliation": { "@type": "CollegeOrUniversity", "name": "The University of Queensland" },
-  "worksFor": {
-    "@type": "Organization",
-    "@id": "https://marriottsystems.net/#organization",
-    "name": "Marriott Systems",
-    "url": "https://marriottsystems.net"
-  },
   "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressCountry": "AU" },
-  "knowsAbout": ["Software Engineering", "Web Development", "Artificial Intelligence", "Full-stack Development"],
+  "knowsAbout": ["Process Redesign", "Software Engineering", "Systems Integration", "Artificial Intelligence", "Web Development"],
   "sameAs": [
     "https://github.com/jacobem1836",
     "https://www.linkedin.com/in/jacob-marriott-1836-98a6571aa",
